@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Turbo Lavado — Auto Detallado</title>
+<meta content="Turbo Lavado: lavado y detallado automotriz profesional en Guaymas, Sonora. Paquetes Básico, Detallado y Premium. Servicio a domicilio. Agenda por WhatsApp." name="description"/>
+<meta content="Turbo Lavado — Auto Detallado" property="og:title"/>
+<meta content="Cuidamos cada detalle, realzamos tu auto. Lavado y detallado profesional con servicio a domicilio." property="og:description"/>
+<meta content="assets/logo_wide_white.png" property="og:image"/>
+<link href="assets/logo_mark_blue.png" rel="icon" type="image/png"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root {
+      --navy-950: #070c1a;
+      --navy-900: #0c1430;
+      --navy-800: #121c42;
+      --blue-600: #1c5ef0;
+      --blue-400: #4fa3ff;
+      --ice-300: #bfe0ff;
+      --gold-400: #e9c46a;
+      --purple-500: #7c4dff;
+      --purple-300: #c9b6ff;
+      --white: #f6f8fc;
+      --muted: #93a2c4;
+      --line: rgba(255, 255, 255, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #05070f;
+      font-family: 'Inter', sans-serif;
+      color: var(--white);
+      display: flex;
+      justify-content: center;
+      padding: 32px 12px 60px;
+    }
+
+    h1,
+    h2,
+    h3,
+    .headline {
+      font-family: 'Oswald', sans-serif;
+      margin: 0;
+    }
+
+    /* ---------- editing toolbar (hidden on print) ---------- */
+    .toolbar {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 50;
+      display: flex;
+      gap: 8px;
+    }
+
+    .toolbar button {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--blue-600);
+      color: white;
+      cursor: pointer;
+    }
+
+    .toolbar button.secondary {
+      background: transparent;
+      color: var(--ice-300);
+      border-color: var(--blue-400);
+    }
+
+    .toolbar button:hover {
+      filter: brightness(1.12);
+    }
+
+    /* ---------- page / flyer ---------- */
+    .flyer {
+      width: 1000px;
+      max-width: 100%;
+      background: linear-gradient(180deg, var(--navy-950) 0%, #060a17 100%);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+      position: relative;
+    }
+
+    [contenteditable="true"] {
+      outline: none;
+    }
+
+    [contenteditable="true"]:hover {
+      background: rgba(79, 163, 255, 0.10);
+      border-radius: 4px;
+    }
+
+    [contenteditable="true"]:focus {
+      background: rgba(79, 163, 255, 0.16);
+      border-radius: 4px;
+      box-shadow: 0 0 0 1px var(--blue-400);
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      padding: 46px 44px 40px;
+      background:
+        radial-gradient(1200px 400px at 85% -10%, rgba(28, 94, 240, 0.35), transparent 60%),
+        radial-gradient(800px 300px at 10% 110%, rgba(124, 77, 255, 0.18), transparent 60%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .brand-mark {
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-size: 64px;
+      line-height: 0.92;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--white);
+    }
+
+    .brand-name .accent {
+      color: var(--blue-400);
+      display: block;
+      font-size: 64px;
+    }
+
+    .tagline {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      max-width: 420px;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 44px;
+      top: 46px;
+      text-align: right;
+    }
+
+    .hero-badge .kicker {
+      font-size: 12px;
+      color: var(--ice-300);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .hero-badge .big {
+      font-family: 'Oswald', sans-serif;
+      font-size: 30px;
+      color: var(--white);
+      margin-top: 4px;
+    }
+
+    .logo-wide {
+      max-width: 360px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .watermark {
+      position: absolute;
+      right: -30px;
+      bottom: -30px;
+      width: 220px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    /* ---------- photo slot (per service) ---------- */
+    .photo-slot {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-radius: 12px;
+      border: 1.5px dashed rgba(191, 224, 255, 0.35);
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 16px;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .photo-slot:hover {
+      border-color: var(--blue-400);
+      background-color: rgba(79, 163, 255, 0.06);
+    }
+
+    .photo-slot .ph-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .photo-slot.has-image .ph-inner {
+      display: none;
+    }
+
+    .photo-slot input[type=file] {
+      display: none;
+    }
+
+    .photo-slot .ph-remove {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: rgba(7, 12, 26, 0.75);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 11px;
+      padding: 4px 8px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .photo-slot.has-image .ph-remove {
+      display: block;
+    }
+
+    /* ---------- add-row buttons ---------- */
+    .add-row-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 2px;
+      padding: 9px;
+      border-radius: 8px;
+      border: 1px dashed rgba(191, 224, 255, 0.35);
+      color: var(--ice-300);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .add-row-btn:hover {
+      background: rgba(79, 163, 255, 0.08);
+      border-color: var(--blue-400);
+    }
+
+    .tier.premium .add-row-btn {
+      color: var(--purple-300);
+      border-color: rgba(124, 77, 255, 0.4);
+    }
+
+    /* ---------- modo finalizado (oculta controles de edición) ---------- */
+    body.finalized .add-row-btn,
+    body.finalized .ph-remove,
+    body.finalized .photo-slot input[type=file]{
+      display:none !important;
+    }
+    body.finalized .photo-slot{
+      border-style:solid; border-color:transparent; cursor:default;
+    }
+    body.finalized [contenteditable="true"]{
+      pointer-events:none;
+    }
+    body.finalized [contenteditable="true"]:hover,
+    body.finalized [contenteditable="true"]:focus{
+      background:none; box-shadow:none;
+    }
+
+    /* ---------- service tier cards ---------- */
+    .tiers {
+      padding: 34px 44px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .tier {
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--navy-900), var(--navy-800));
+      padding: 26px 28px;
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 26px;
+    }
+
+    .tier.premium {
+      border-color: rgba(124, 77, 255, 0.45);
+      background: linear-gradient(180deg, #14113a, #0d0c26);
+    }
+
+    .tier-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .tier-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue-600);
+      color: white;
+    }
+
+    .tier.premium .tier-icon {
+      background: linear-gradient(135deg, var(--purple-500), #4b2fd9);
+    }
+
+    .tier-title {
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .tier-note {
+      font-size: 12.5px;
+      color: var(--ice-300);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .tier.premium .tier-note {
+      color: var(--purple-300);
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 10px;
+      font-size: 14.5px;
+      color: #dbe4f7;
+      align-items: flex-start;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      color: var(--blue-400);
+      font-weight: 700;
+      font-size: 14px;
+      background: rgba(79, 163, 255, 0.15);
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tier.premium .checklist li::before {
+      color: var(--purple-300);
+      background: rgba(124, 77, 255, 0.18);
+    }
+
+    .price-panel {
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .price-panel .label {
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .price-row .vehicle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #cdd8ef;
+      font-weight: 600;
+    }
+
+    .price-row .amount {
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      color: var(--blue-400);
+    }
+
+    .tier.premium .price-row .amount {
+      color: var(--purple-300);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 2px 0;
+    }
+
+    /* ---------- extras strip ---------- */
+    .extras {
+      margin: 6px 44px 0;
+      padding: 20px 24px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .extras .extras-title {
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .extra-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #dbe4f7;
+    }
+
+    .extra-item .amt {
+      color: var(--blue-400);
+      font-weight: 700;
+    }
+
+    /* ---------- domicilio banner ---------- */
+    .domicilio {
+      margin: 34px 44px 0;
+      padding: 26px 28px;
+      border-radius: 16px;
+      background: linear-gradient(120deg, #0d1f52, #10305f);
+      border: 1px solid rgba(79, 163, 255, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .domicilio-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .domicilio-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(79, 163, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .domicilio h3 {
+      font-size: 24px;
+      color: var(--white);
+    }
+
+    .domicilio p {
+      margin: 4px 0 0;
+      color: var(--ice-300);
+      font-size: 13.5px;
+    }
+
+    /* ---------- footer / contact ---------- */
+    .footer {
+      margin-top: 34px;
+      padding: 30px 44px 40px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cta .cta-btn {
+      background: var(--white);
+      color: var(--navy-950);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .qr-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      background: white;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .contact-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .contact-text .phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 19px;
+      color: var(--white);
+      display: block;
+      margin: 2px 0;
+    }
+
+    .contact-text a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-note {
+      grid-column: 1 / -1;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: white;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .flyer {
+        box-shadow: none;
+        border-radius: 0;
+        width: 100%;
+      }
+
+      [contenteditable="true"]:hover,
+      [contenteditable="true"]:focus {
+        background: none;
+        box-shadow: none;
+      }
+    }
+
+    @media (max-width:720px) {
+      .tier {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-name,
+      .brand-name .accent {
+        font-size: 44px;
+      }
+
+      .footer {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-badge {
+        position: static;
+        text-align: left;
+        margin-top: 16px;
+      }
+    }
+  </style>
+</head>
+<body class="finalized">
+
+<div class="flyer" id="flyer">
+<!-- ============ HERO ============ -->
+<div class="hero">
+<img alt="" class="watermark" src="assets/logo_mark_blue.png"/>
+<div class="brand-row">
+<img alt="Turbo Lavado" class="logo-wide" src="assets/logo_wide_white.png"/>
+</div>
+<div class="tier-title" contenteditable="false">Cuidamos cada detalle, realzamos tu auto.<br/>Servicio
+        profesional de lavado y detallado automotriz.</div>
+<div class="hero-badge">
+<div class="kicker">DESDE</div>
+<div class="big" contenteditable="false">$150</div>
+<div class="tagline" contenteditable="false">Precios base. Vehículos con exceso de lodo, pelo de mascota o
+          manchas severas en tapicería/carrocería. Tienen un costo adicional previo diagnóstico.</div>
+</div>
+</div>
+<!-- ============ TIERS ============ -->
+<div class="tiers">
+<!-- BÁSICO -->
+<div class="tier">
+<div>
+<div class="tier-head">
+<div class="tier-icon">
+<svg fill="none" height="22" viewbox="0 0 24 24" width="22">
+<path d="M4 14c0-3 2-5 5-6-1 2 0 3 1 3 2 0 2-3 1-5 3 1 6 4 6 8 0 4-3 7-7 7s-6-3-6-7z" fill="none" stroke="white" stroke-width="1.6"></path>
+</svg>
+</div>
+<div class="tier-title" contenteditable="false">Paquete Básico</div>
+</div>
+<label class="photo-slot has-image" onclick="event.stopPropagation()" style="background-image:url('assets/basico.jpg')">
+<input accept="image/*" onchange="setSlotPhoto(this)" type="file"/>
+<div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
+<button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
+</label>
+<ul class="checklist">
+<li contenteditable="false">Aspirado rápido</li>
+<li contenteditable="false">Limpieza de puertas, tableros y centros de mando</li>
+<li contenteditable="false">Lavado exterior de contacto</li>
+<li contenteditable="false">Brillo en neumáticos</li>
+<li contenteditable="false">Aroma</li>
+</ul>
+</div>
+<div class="price-panel">
+<div class="label">PRECIOS</div>
+<div class="price-row">
+<div class="vehicle">🏍️ <span contenteditable="false">Moto</span></div>
+<div class="amount" contenteditable="false">$100</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
+<div class="amount" contenteditable="false">$150</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br/>Pick-Up Chica/Mediana</span></div>
+<div class="amount" contenteditable="false">$200</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br/>Pick-Up Grande</span></div>
+<div class="amount" contenteditable="false">$250</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
+<div class="amount" contenteditable="false">$350</div>
+</div>
+<button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
+</div>
+</div>
+<!-- PAQUETE COMPLETO -->
+<div class="tier">
+<div>
+<div class="tier-head">
+<div class="tier-icon">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20">
+<path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z" fill="white" stroke="white" stroke-width="1.4"></path>
+</svg>
+</div>
+<div class="tier-title" contenteditable="false">Paquete Detallado</div>
+</div>
+<label class="photo-slot has-image" onclick="event.stopPropagation()" style="background-image:url('assets/completo.jpg')">
+<input accept="image/*" onchange="setSlotPhoto(this)" type="file"/>
+<div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
+<button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
+</label>
+<div class="tier-note" contenteditable="false">*Incluye todo lo del paquete básico más:</div>
+<ul class="checklist">
+<li contenteditable="false">Pre lavado con shampoo pH neutro</li>
+<li contenteditable="false">Limpieza de emblemas y rendijas</li>
+<li contenteditable="false">Limpieza de marcos de puertas</li>
+<li contenteditable="false">Limpieza de rines y tolvas</li>
+<li contenteditable="false">Hidratación de plásticos exteriores e interiores</li>
+<li contenteditable="false">Cera rápida</li>
+</ul>
+</div>
+<div class="price-panel">
+<div class="label">PRECIOS</div>
+<div class="price-row">
+<div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
+<div class="amount" contenteditable="false">$250</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br/>Pick-Up Chica/Mediana</span></div>
+<div class="amount" contenteditable="false">$300</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br/>Pick-Up Grande</span></div>
+<div class="amount" contenteditable="false">$400</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
+<div class="amount" contenteditable="false">$600</div>
+</div>
+<button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
+</div>
+</div>
+<!-- PAQUETE PREMIUM -->
+<div class="tier premium">
+<div>
+<div class="tier-head">
+<div class="tier-icon">
+<svg fill="none" height="20" viewbox="0 0 24 24" width="20">
+<path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8z" fill="white" stroke="white" stroke-width="1.4"></path>
+</svg>
+</div>
+<div class="tier-title" contenteditable="false">Paquete Premium</div>
+</div>
+<label class="photo-slot has-image" onclick="event.stopPropagation()" style="background-image:url('assets/premium.jpg')">
+<input accept="image/*" onchange="setSlotPhoto(this)" type="file"/>
+<div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
+<button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
+</label>
+<div class="tier-note" contenteditable="false">*Incluye todo lo del paquete detallado más:</div>
+<ul class="checklist">
+<li contenteditable="false">Limpieza profunda de interiores</li>
+<li contenteditable="false">Lavado de alfombras</li>
+<li contenteditable="false">Lavado de asientos</li>
+<li contenteditable="false">Pulido de faros</li>
+</ul>
+</div>
+<div class="price-panel">
+<div class="label">PRECIOS</div>
+<div class="price-row">
+<div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
+<div class="amount" contenteditable="false">$1200</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br/>Pick-Up Chica/Mediana</span></div>
+<div class="amount" contenteditable="false">$1500</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br/>Pick-Up Grande</span></div>
+<div class="amount" contenteditable="false">$1800</div>
+</div>
+<div class="divider"></div>
+<div class="price-row">
+<div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
+<div class="amount" contenteditable="false">$2500</div>
+</div>
+<button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
+</div>
+</div>
+</div>
+<!-- ============ EXTRAS ============ -->
+<div class="extras">
+<div class="extras-title" contenteditable="false">EXTRAS</div>
+<div class="extra-item"><span contenteditable="false">Cera rápida</span> — <span class="amt" contenteditable="false">$100</span></div>
+<div class="extra-item"><span contenteditable="false">Hidratación de plásticos</span> — <span class="amt" contenteditable="false">$50</span></div>
+<div class="extra-item"><span contenteditable="false">Pulido de faros</span> — <span class="amt" contenteditable="false">$250</span></div>
+<button class="add-row-btn" onclick="addExtraItem(this)" style="width:auto; padding:9px 16px;" type="button">+
+        Agregar extra</button>
+</div>
+<!-- ============ DOMICILIO ============ -->
+<div class="domicilio">
+<div class="domicilio-left">
+<div class="domicilio-icon">
+<svg fill="none" height="26" viewbox="0 0 24 24" width="26">
+<path d="M3 11l9-7 9 7" stroke="#4fa3ff" stroke-width="1.8"></path>
+<path d="M5 10v10h14V10" stroke="#4fa3ff" stroke-width="1.8"></path>
+</svg>
+</div>
+<div>
+<h3 contenteditable="false">Servicio a domicilio</h3>
+<p contenteditable="false">¡No salgas de casa! Recogemos tu auto y te lo entregamos listo. Servicio a domicilio
+            disponible con un costo adicional dependiendo de la distancia.</p>
+</div>
+</div>
+</div>
+<!-- ============ FOOTER / CONTACTO ============ -->
+<div class="footer">
+<div class="cta">
+<div class="cta-btn">
+          📅 <span contenteditable="false">¡Agenda tu cita!</span>
+</div>
+</div>
+<div class="contact-block">
+<div class="qr-box">
+<!-- QR apunta al WhatsApp: edita el número en el enlace y en el texto -->
+<img alt="QR WhatsApp 1" src="assets/qr1.png"/>
+</div>
+<div class="contact-text">
+<span>WhatsApp</span>
+<a class="phone" contenteditable="false" href="https://wa.me/526223517499">622 351 7499</a>
+<span contenteditable="false">Llámanos o escríbenos</span>
+</div>
+</div>
+<div class="contact-block">
+<div class="qr-box">
+<img alt="QR WhatsApp 2" src="assets/qr2.png"/>
+</div>
+<div class="contact-text">
+<span>WhatsApp</span>
+<a class="phone" contenteditable="false" href="https://wa.me/526222872281">622 287 2281</a>
+<span contenteditable="false">Llámanos o escríbenos</span>
+</div>
+</div>
+<div class="footer-note">Escanea el código QR y escríbenos por WhatsApp para agendar tu cita.</div>
+</div>
+</div>
+<script>
+    // ---- subir foto en cada casilla de servicio ----
+    function setSlotPhoto(input) {
+      const slot = input.closest('.photo-slot');
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        slot.style.backgroundImage = `url('${e.target.result}')`;
+        slot.classList.add('has-image');
+      };
+      reader.readAsDataURL(file);
+    }
+    function removeSlotPhoto(evt, btn) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      const slot = btn.closest('.photo-slot');
+      slot.style.backgroundImage = '';
+      slot.classList.remove('has-image');
+      const input = slot.querySelector('input[type=file]');
+      if (input) input.value = '';
+    }
+
+    // ---- agregar opción de precio (auto/camioneta/otro) dentro de un paquete ----
+    function addPriceRow(btn) {
+      const panel = btn.parentElement;
+      const divider = document.createElement('div');
+      divider.className = 'divider';
+      const row = document.createElement('div');
+      row.className = 'price-row';
+      row.innerHTML = `
+      <div class="vehicle">🚘 <span contenteditable="true">Nueva opción</span></div>
+      <div class="amount" contenteditable="true">$0</div>`;
+      panel.insertBefore(divider, btn);
+      panel.insertBefore(row, btn);
+    }
+
+    // ---- agregar extra ----
+    function addExtraItem(btn) {
+      const wrap = btn.parentElement;
+      const item = document.createElement('div');
+      item.className = 'extra-item';
+      item.innerHTML = `<span contenteditable="true">Nuevo extra</span> — <span class="amt" contenteditable="true">$0</span>`;
+      wrap.insertBefore(item, btn);
+    }
+
+  // ---- alternar modo edición / modo final (limpio) ----
+  function toggleFinalized(){
+    document.querySelectorAll('[contenteditable]').forEach(el=>el.blur());
+    const isFinal = document.body.classList.toggle('finalized');
+    document.getElementById('toggleEditBtn').textContent = isFinal ? 'Volver a editar' : 'Terminar edición';
+    document.querySelectorAll('[contenteditable]').forEach(el=>{
+      el.setAttribute('contenteditable', isFinal ? 'false' : 'true');
+    });
+  }
+  </script>
+</body>
+</html>
