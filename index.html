@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 
 <html lang="es">
+
 <head>
-<meta charset="utf-8"/>
-<title>Turbo Lavado — Auto Detallado</title>
-<meta content="Turbo Lavado: lavado y detallado automotriz profesional en Guaymas, Sonora. Paquetes Básico, Detallado y Premium. Servicio a domicilio. Agenda por WhatsApp." name="description"/>
-<meta content="Turbo Lavado — Auto Detallado" property="og:title"/>
-<meta content="Cuidamos cada detalle, realzamos tu auto. Lavado y detallado profesional con servicio a domicilio." property="og:description"/>
-<meta content="assets/logo_wide_white.png" property="og:image"/>
-<link href="assets/logo_mark_blue.png" rel="icon" type="image/png"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
+  <meta charset="utf-8" />
+  <title>Turbo Lavado — Auto Detallado</title>
+  <meta
+    content="Turbo Lavado: lavado y detallado automotriz profesional en Guaymas, Sonora. Paquetes Básico, Detallado y Premium. Servicio a domicilio. Agenda por WhatsApp."
+    name="description" />
+  <meta content="Turbo Lavado — Auto Detallado" property="og:title" />
+  <meta content="Cuidamos cada detalle, realzamos tu auto. Lavado y detallado profesional con servicio a domicilio."
+    property="og:description" />
+  <meta content="assets/logo_wide_white.png" property="og:image" />
+  <link href="assets/logo_mark_blue.png" rel="icon" type="image/png" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <style>
     :root {
       --navy-950: #070c1a;
       --navy-900: #0c1430;
@@ -285,18 +291,24 @@
     /* ---------- modo finalizado (oculta controles de edición) ---------- */
     body.finalized .add-row-btn,
     body.finalized .ph-remove,
-    body.finalized .photo-slot input[type=file]{
-      display:none !important;
+    body.finalized .photo-slot input[type=file] {
+      display: none !important;
     }
-    body.finalized .photo-slot{
-      border-style:solid; border-color:transparent; cursor:default;
+
+    body.finalized .photo-slot {
+      border-style: solid;
+      border-color: transparent;
+      cursor: default;
     }
-    body.finalized [contenteditable="true"]{
-      pointer-events:none;
+
+    body.finalized [contenteditable="true"] {
+      pointer-events: none;
     }
+
     body.finalized [contenteditable="true"]:hover,
-    body.finalized [contenteditable="true"]:focus{
-      background:none; box-shadow:none;
+    body.finalized [contenteditable="true"]:focus {
+      background: none;
+      box-shadow: none;
     }
 
     /* ---------- service tier cards ---------- */
@@ -649,235 +661,248 @@
     }
   </style>
 </head>
+
 <body class="finalized">
 
-<div class="flyer" id="flyer">
-<!-- ============ HERO ============ -->
-<div class="hero">
-<img alt="" class="watermark" src="assets/logo_mark_blue.png"/>
-<div class="brand-row">
-<img alt="Turbo Lavado" class="logo-wide" src="assets/logo_wide_white.png"/>
-</div>
-<div class="tier-title" contenteditable="false">Cuidamos cada detalle, realzamos tu auto.<br/>Servicio
+  <div class="flyer" id="flyer">
+    <!-- ============ HERO ============ -->
+    <div class="hero">
+      <img alt="" class="watermark" src="assets/logo_mark_blue.png" />
+      <div class="brand-row">
+        <img alt="Turbo Lavado" class="logo-wide" src="assets/logo_wide_white.png" />
+      </div>
+      <div class="tier-title" contenteditable="false">Cuidamos cada detalle, realzamos tu auto.<br />Servicio
         profesional de lavado y detallado automotriz.</div>
-<div class="hero-badge">
-<div class="kicker">DESDE</div>
-<div class="big" contenteditable="false">$150</div>
-<div class="tagline" contenteditable="false">Precios base. Vehículos con exceso de lodo, pelo de mascota o
+      <div class="hero-badge">
+        <div class="kicker">DESDE</div>
+        <div class="big" contenteditable="false">$150</div>
+        <div class="tagline" contenteditable="false">Precios base. Vehículos con exceso de lodo, pelo de mascota o
           manchas severas en tapicería/carrocería. Tienen un costo adicional previo diagnóstico.</div>
-</div>
-</div>
-<!-- ============ TIERS ============ -->
-<div class="tiers">
-<!-- BÁSICO -->
-<div class="tier">
-<div>
-<div class="tier-head">
-<div class="tier-icon">
-<svg fill="none" height="22" viewbox="0 0 24 24" width="22">
-<path d="M4 14c0-3 2-5 5-6-1 2 0 3 1 3 2 0 2-3 1-5 3 1 6 4 6 8 0 4-3 7-7 7s-6-3-6-7z" fill="none" stroke="white" stroke-width="1.6"></path>
-</svg>
-</div>
-<div class="tier-title" contenteditable="false">Paquete Básico</div>
-</div>
-<label class="photo-slot has-image" onclick="event.stopPropagation()" style="background-image:url('assets/basico.jpg')">
-<input accept="image/*" onchange="setSlotPhoto(this)" type="file"/>
-<div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
-<button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
-</label>
-<ul class="checklist">
-<li contenteditable="false">Aspirado rápido</li>
-<li contenteditable="false">Limpieza de puertas, tableros y centros de mando</li>
-<li contenteditable="false">Lavado exterior de contacto</li>
-<li contenteditable="false">Brillo en neumáticos</li>
-<li contenteditable="false">Aroma</li>
-</ul>
-</div>
-<div class="price-panel">
-<div class="label">PRECIOS</div>
-<div class="price-row">
-<div class="vehicle">🏍️ <span contenteditable="false">Moto</span></div>
-<div class="amount" contenteditable="false">$100</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
-<div class="amount" contenteditable="false">$150</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br/>Pick-Up Chica/Mediana</span></div>
-<div class="amount" contenteditable="false">$200</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br/>Pick-Up Grande</span></div>
-<div class="amount" contenteditable="false">$250</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
-<div class="amount" contenteditable="false">$350</div>
-</div>
-<button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
-</div>
-</div>
-<!-- PAQUETE COMPLETO -->
-<div class="tier">
-<div>
-<div class="tier-head">
-<div class="tier-icon">
-<svg fill="none" height="20" viewbox="0 0 24 24" width="20">
-<path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z" fill="white" stroke="white" stroke-width="1.4"></path>
-</svg>
-</div>
-<div class="tier-title" contenteditable="false">Paquete Detallado</div>
-</div>
-<label class="photo-slot has-image" onclick="event.stopPropagation()" style="background-image:url('assets/completo.jpg')">
-<input accept="image/*" onchange="setSlotPhoto(this)" type="file"/>
-<div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
-<button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
-</label>
-<div class="tier-note" contenteditable="false">*Incluye todo lo del paquete básico más:</div>
-<ul class="checklist">
-<li contenteditable="false">Pre lavado con shampoo pH neutro</li>
-<li contenteditable="false">Limpieza de emblemas y rendijas</li>
-<li contenteditable="false">Limpieza de marcos de puertas</li>
-<li contenteditable="false">Limpieza de rines y tolvas</li>
-<li contenteditable="false">Hidratación de plásticos exteriores e interiores</li>
-<li contenteditable="false">Cera rápida</li>
-</ul>
-</div>
-<div class="price-panel">
-<div class="label">PRECIOS</div>
-<div class="price-row">
-<div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
-<div class="amount" contenteditable="false">$250</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br/>Pick-Up Chica/Mediana</span></div>
-<div class="amount" contenteditable="false">$300</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br/>Pick-Up Grande</span></div>
-<div class="amount" contenteditable="false">$400</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
-<div class="amount" contenteditable="false">$600</div>
-</div>
-<button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
-</div>
-</div>
-<!-- PAQUETE PREMIUM -->
-<div class="tier premium">
-<div>
-<div class="tier-head">
-<div class="tier-icon">
-<svg fill="none" height="20" viewbox="0 0 24 24" width="20">
-<path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8z" fill="white" stroke="white" stroke-width="1.4"></path>
-</svg>
-</div>
-<div class="tier-title" contenteditable="false">Paquete Premium</div>
-</div>
-<label class="photo-slot has-image" onclick="event.stopPropagation()" style="background-image:url('assets/premium.jpg')">
-<input accept="image/*" onchange="setSlotPhoto(this)" type="file"/>
-<div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
-<button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
-</label>
-<div class="tier-note" contenteditable="false">*Incluye todo lo del paquete detallado más:</div>
-<ul class="checklist">
-<li contenteditable="false">Limpieza profunda de interiores</li>
-<li contenteditable="false">Lavado de alfombras</li>
-<li contenteditable="false">Lavado de asientos</li>
-<li contenteditable="false">Pulido de faros</li>
-</ul>
-</div>
-<div class="price-panel">
-<div class="label">PRECIOS</div>
-<div class="price-row">
-<div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
-<div class="amount" contenteditable="false">$1200</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br/>Pick-Up Chica/Mediana</span></div>
-<div class="amount" contenteditable="false">$1500</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br/>Pick-Up Grande</span></div>
-<div class="amount" contenteditable="false">$1800</div>
-</div>
-<div class="divider"></div>
-<div class="price-row">
-<div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
-<div class="amount" contenteditable="false">$2500</div>
-</div>
-<button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
-</div>
-</div>
-</div>
-<!-- ============ EXTRAS ============ -->
-<div class="extras">
-<div class="extras-title" contenteditable="false">EXTRAS</div>
-<div class="extra-item"><span contenteditable="false">Cera rápida</span> — <span class="amt" contenteditable="false">$100</span></div>
-<div class="extra-item"><span contenteditable="false">Hidratación de plásticos</span> — <span class="amt" contenteditable="false">$50</span></div>
-<div class="extra-item"><span contenteditable="false">Pulido de faros</span> — <span class="amt" contenteditable="false">$250</span></div>
-<button class="add-row-btn" onclick="addExtraItem(this)" style="width:auto; padding:9px 16px;" type="button">+
+      </div>
+    </div>
+    <!-- ============ TIERS ============ -->
+    <div class="tiers">
+      <!-- BÁSICO -->
+      <div class="tier">
+        <div>
+          <div class="tier-head">
+            <div class="tier-icon">
+              <svg fill="none" height="22" viewbox="0 0 24 24" width="22">
+                <path d="M4 14c0-3 2-5 5-6-1 2 0 3 1 3 2 0 2-3 1-5 3 1 6 4 6 8 0 4-3 7-7 7s-6-3-6-7z" fill="none"
+                  stroke="white" stroke-width="1.6"></path>
+              </svg>
+            </div>
+            <div class="tier-title" contenteditable="false">Paquete Básico</div>
+          </div>
+          <label class="photo-slot has-image" onclick="event.stopPropagation()"
+            style="background-image:url('assets/basico.jpg')">
+            <input accept="image/*" onchange="setSlotPhoto(this)" type="file" />
+            <div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
+            <button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
+          </label>
+          <ul class="checklist">
+            <li contenteditable="false">Aspirado rápido</li>
+            <li contenteditable="false">Limpieza de puertas, tableros y centros de mando</li>
+            <li contenteditable="false">Lavado exterior de contacto</li>
+            <li contenteditable="false">Brillo en neumáticos</li>
+            <li contenteditable="false">Aroma</li>
+          </ul>
+        </div>
+        <div class="price-panel">
+          <div class="label">PRECIOS</div>
+          <div class="price-row">
+            <div class="vehicle">🏍️ <span contenteditable="false">Moto</span></div>
+            <div class="amount" contenteditable="false">$100</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
+            <div class="amount" contenteditable="false">$150</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br />Pick-Up Chica/Mediana</span>
+            </div>
+            <div class="amount" contenteditable="false">$200</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br />Pick-Up Grande</span></div>
+            <div class="amount" contenteditable="false">$250</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
+            <div class="amount" contenteditable="false">$350</div>
+          </div>
+          <button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
+        </div>
+      </div>
+      <!-- PAQUETE COMPLETO -->
+      <div class="tier">
+        <div>
+          <div class="tier-head">
+            <div class="tier-icon">
+              <svg fill="none" height="20" viewbox="0 0 24 24" width="20">
+                <path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1 3-6z" fill="white" stroke="white"
+                  stroke-width="1.4"></path>
+              </svg>
+            </div>
+            <div class="tier-title" contenteditable="false">Paquete Detallado</div>
+          </div>
+          <label class="photo-slot has-image" onclick="event.stopPropagation()"
+            style="background-image:url('assets/completo.jpg')">
+            <input accept="image/*" onchange="setSlotPhoto(this)" type="file" />
+            <div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
+            <button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
+          </label>
+          <div class="tier-note" contenteditable="false">*Incluye todo lo del paquete básico más:</div>
+          <ul class="checklist">
+            <li contenteditable="false">Pre lavado con shampoo pH neutro</li>
+            <li contenteditable="false">Limpieza de emblemas y rendijas</li>
+            <li contenteditable="false">Limpieza de marcos de puertas</li>
+            <li contenteditable="false">Limpieza de rines y tolvas</li>
+            <li contenteditable="false">Hidratación de plásticos exteriores e interiores</li>
+            <li contenteditable="false">Cera rápida</li>
+          </ul>
+        </div>
+        <div class="price-panel">
+          <div class="label">PRECIOS</div>
+          <div class="price-row">
+            <div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
+            <div class="amount" contenteditable="false">$250</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br />Pick-Up Chica/Mediana</span>
+            </div>
+            <div class="amount" contenteditable="false">$300</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br />Pick-Up Grande</span></div>
+            <div class="amount" contenteditable="false">$400</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
+            <div class="amount" contenteditable="false">$600</div>
+          </div>
+          <button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
+        </div>
+      </div>
+      <!-- PAQUETE PREMIUM -->
+      <div class="tier premium">
+        <div>
+          <div class="tier-head">
+            <div class="tier-icon">
+              <svg fill="none" height="20" viewbox="0 0 24 24" width="20">
+                <path d="M3 8l4 3 5-6 5 6 4-3-2 10H5L3 8z" fill="white" stroke="white" stroke-width="1.4"></path>
+              </svg>
+            </div>
+            <div class="tier-title" contenteditable="false">Paquete Premium</div>
+          </div>
+          <label class="photo-slot has-image" onclick="event.stopPropagation()"
+            style="background-image:url('assets/premium.jpg')">
+            <input accept="image/*" onchange="setSlotPhoto(this)" type="file" />
+            <div class="ph-inner">📷<span>Agregar foto del servicio</span></div>
+            <button class="ph-remove" onclick="removeSlotPhoto(event,this)" type="button">Quitar</button>
+          </label>
+          <div class="tier-note" contenteditable="false">*Incluye todo lo del paquete detallado más:</div>
+          <ul class="checklist">
+            <li contenteditable="false">Limpieza profunda de interiores</li>
+            <li contenteditable="false">Lavado de alfombras</li>
+            <li contenteditable="false">Lavado de asientos</li>
+            <li contenteditable="false">Pulido de faros</li>
+          </ul>
+        </div>
+        <div class="price-panel">
+          <div class="label">PRECIOS</div>
+          <div class="price-row">
+            <div class="vehicle">🚗 <span contenteditable="false">Auto</span></div>
+            <div class="amount" contenteditable="false">$1200</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚙 <span contenteditable="false">Camioneta (2 filas)<br />Pick-Up Chica/Mediana</span>
+            </div>
+            <div class="amount" contenteditable="false">$1500</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚘 <span contenteditable="false">Camioneta (3 filas)<br />Pick-Up Grande</span></div>
+            <div class="amount" contenteditable="false">$1800</div>
+          </div>
+          <div class="divider"></div>
+          <div class="price-row">
+            <div class="vehicle">🚐 <span contenteditable="false">Van / Vehículo XL</span></div>
+            <div class="amount" contenteditable="false">$2500</div>
+          </div>
+          <button class="add-row-btn" onclick="addPriceRow(this)" type="button">+ Agregar opción</button>
+        </div>
+      </div>
+    </div>
+    <!-- ============ EXTRAS ============ -->
+    <div class="extras">
+      <div class="extras-title" contenteditable="false">EXTRAS</div>
+      <div class="extra-item"><span contenteditable="false">Cera rápida</span> — <span class="amt"
+          contenteditable="false">$100</span></div>
+      <div class="extra-item"><span contenteditable="false">Hidratación de plásticos</span> — <span class="amt"
+          contenteditable="false">$50</span></div>
+      <div class="extra-item"><span contenteditable="false">Pulido de faros</span> — <span class="amt"
+          contenteditable="false">$250</span></div>
+      <button class="add-row-btn" onclick="addExtraItem(this)" style="width:auto; padding:9px 16px;" type="button">+
         Agregar extra</button>
-</div>
-<!-- ============ DOMICILIO ============ -->
-<div class="domicilio">
-<div class="domicilio-left">
-<div class="domicilio-icon">
-<svg fill="none" height="26" viewbox="0 0 24 24" width="26">
-<path d="M3 11l9-7 9 7" stroke="#4fa3ff" stroke-width="1.8"></path>
-<path d="M5 10v10h14V10" stroke="#4fa3ff" stroke-width="1.8"></path>
-</svg>
-</div>
-<div>
-<h3 contenteditable="false">Servicio a domicilio</h3>
-<p contenteditable="false">¡No salgas de casa! Recogemos tu auto y te lo entregamos listo. Servicio a domicilio
+    </div>
+    <!-- ============ DOMICILIO ============ -->
+    <div class="domicilio">
+      <div class="domicilio-left">
+        <div class="domicilio-icon">
+          <svg fill="none" height="26" viewbox="0 0 24 24" width="26">
+            <path d="M3 11l9-7 9 7" stroke="#4fa3ff" stroke-width="1.8"></path>
+            <path d="M5 10v10h14V10" stroke="#4fa3ff" stroke-width="1.8"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 contenteditable="false">Servicio a domicilio</h3>
+          <p contenteditable="false">¡No salgas de casa! Recogemos tu auto y te lo entregamos listo. Servicio a
+            domicilio
             disponible con un costo adicional dependiendo de la distancia.</p>
-</div>
-</div>
-</div>
-<!-- ============ FOOTER / CONTACTO ============ -->
-<div class="footer">
-<div class="cta">
-<div class="cta-btn">
+        </div>
+      </div>
+    </div>
+    <!-- ============ FOOTER / CONTACTO ============ -->
+    <div class="footer">
+      <div class="cta">
+        <div class="cta-btn">
           📅 <span contenteditable="false">¡Agenda tu cita!</span>
-</div>
-</div>
-<div class="contact-block">
-<div class="qr-box">
-<!-- QR apunta al WhatsApp: edita el número en el enlace y en el texto -->
-<img alt="QR WhatsApp 1" src="assets/qr1.png"/>
-</div>
-<div class="contact-text">
-<span>WhatsApp</span>
-<a class="phone" contenteditable="false" href="https://wa.me/526223517499">622 351 7499</a>
-<span contenteditable="false">Llámanos o escríbenos</span>
-</div>
-</div>
-<div class="contact-block">
-<div class="qr-box">
-<img alt="QR WhatsApp 2" src="assets/qr2.png"/>
-</div>
-<div class="contact-text">
-<span>WhatsApp</span>
-<a class="phone" contenteditable="false" href="https://wa.me/526222872281">622 287 2281</a>
-<span contenteditable="false">Llámanos o escríbenos</span>
-</div>
-</div>
-<div class="footer-note">Escanea el código QR y escríbenos por WhatsApp para agendar tu cita.</div>
-</div>
-</div>
-<script>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="qr-box">
+          <!-- QR apunta al WhatsApp: edita el número en el enlace y en el texto -->
+          <img alt="QR WhatsApp 1" src="assets/qr1.png" />
+        </div>
+        <div class="contact-text">
+          <span>WhatsApp</span>
+          <a class="phone" contenteditable="false" href="https://wa.me/526223517499">622 351 7499</a>
+          <span contenteditable="false">Llámanos o escríbenos</span>
+        </div>
+      </div>
+      <div class="contact-block">
+        <div class="qr-box">
+          <img alt="QR WhatsApp 2" src="assets/qr2.png" />
+        </div>
+        <div class="contact-text">
+          <span>WhatsApp</span>
+          <a class="phone" contenteditable="false" href="https://wa.me/526222872281">622 287 2281</a>
+          <span contenteditable="false">Llámanos o escríbenos</span>
+        </div>
+      </div>
+      <div class="footer-note">Escanea el código QR y escríbenos por WhatsApp para agendar tu cita.</div>
+    </div>
+  </div>
+  <script>
     // ---- subir foto en cada casilla de servicio ----
     function setSlotPhoto(input) {
       const slot = input.closest('.photo-slot');
@@ -923,15 +948,16 @@
       wrap.insertBefore(item, btn);
     }
 
-  // ---- alternar modo edición / modo final (limpio) ----
-  function toggleFinalized(){
-    document.querySelectorAll('[contenteditable]').forEach(el=>el.blur());
-    const isFinal = document.body.classList.toggle('finalized');
-    document.getElementById('toggleEditBtn').textContent = isFinal ? 'Volver a editar' : 'Terminar edición';
-    document.querySelectorAll('[contenteditable]').forEach(el=>{
-      el.setAttribute('contenteditable', isFinal ? 'false' : 'true');
-    });
-  }
+    // ---- alternar modo edición / modo final (limpio) ----
+    function toggleFinalized() {
+      document.querySelectorAll('[contenteditable]').forEach(el => el.blur());
+      const isFinal = document.body.classList.toggle('finalized');
+      document.getElementById('toggleEditBtn').textContent = isFinal ? 'Volver a editar' : 'Terminar edición';
+      document.querySelectorAll('[contenteditable]').forEach(el => {
+        el.setAttribute('contenteditable', isFinal ? 'false' : 'true');
+      });
+    }
   </script>
 </body>
+
 </html>
